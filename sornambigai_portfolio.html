@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Sornambigai M — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#0a0a0f;color:#f0ede8;min-height:100vh;overflow-x:hidden;scroll-behavior:smooth}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#0a0a0f}::-webkit-scrollbar-thumb{background:#2a2a40;border-radius:2px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;justify-content:center;gap:2rem;padding:1rem 2rem}
+nav a{color:rgba(240,237,232,0.5);font-family:'Syne',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-decoration:none;text-transform:uppercase;transition:color 0.2s;padding:0.25rem 0}
+nav a:hover,nav a.active{color:#a78bfa}
+
+/* SECTIONS */
+section{min-height:100vh;padding:8rem 2rem 4rem;max-width:900px;margin:0 auto}
+#home{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;max-width:100%}
+
+/* HOME */
+.glow-bg{position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(167,139,250,0.12) 0%,transparent 70%);pointer-events:none}
+.avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,#a78bfa,#34d399);display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:800;font-family:'Syne',sans-serif;margin-bottom:2rem;box-shadow:0 0 40px rgba(167,139,250,0.3)}
+h1.hero{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:1.1;margin-bottom:1rem;background:linear-gradient(135deg,#f0ede8 30%,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-role{font-family:'Syne',sans-serif;font-size:1.1rem;color:#a78bfa;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1.5rem}
+.hero-desc{max-width:520px;color:rgba(240,237,232,0.65);line-height:1.8;font-size:1rem;margin-bottom:3rem}
+.tags{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-bottom:3rem}
+.tag{padding:0.4rem 1rem;border:1px solid rgba(167,139,250,0.3);border-radius:999px;font-size:0.8rem;color:rgba(240,237,232,0.7);background:rgba(167,139,250,0.08)}
+.contact-row{display:flex;gap:2rem;font-size:0.85rem;color:rgba(240,237,232,0.45);flex-wrap:wrap;justify-content:center}
+
+/* SECTION HEADINGS */
+.sec-title{font-family:'Syne',sans-serif;font-size:2.5rem;font-weight:800;margin-bottom:0.5rem}
+.sec-sub{color:rgba(240,237,232,0.5);margin-bottom:3rem}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
+.skill-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:1.5rem;transition:border-color 0.2s}
+.skill-card:hover{border-color:rgba(167,139,250,0.3)}
+.skill-icon{font-size:1.5rem;margin-bottom:0.75rem}
+.skill-cat{font-family:'Syne',sans-serif;font-weight:700;font-size:0.9rem;color:#a78bfa;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem}
+.skill-items{display:flex;flex-wrap:wrap;gap:0.5rem}
+.skill-item{font-size:0.8rem;padding:0.25rem 0.6rem;background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.2);border-radius:6px;color:rgba(240,237,232,0.8)}
+
+/* EXPERIENCE */
+.timeline{position:relative}
+.timeline::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:1px;background:rgba(255,255,255,0.08)}
+.exp-item{display:flex;gap:2rem;margin-bottom:2.5rem;position:relative}
+.exp-dot{width:28px;height:28px;border-radius:50%;flex-shrink:0;border:3px solid #0a0a0f;margin-top:4px}
+.exp-card{flex:1;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:1.5rem}
+.exp-header{display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;margin-bottom:0.75rem}
+.exp-role{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem}
+.exp-period{font-size:0.75rem;color:rgba(240,237,232,0.4);background:rgba(255,255,255,0.05);padding:0.3rem 0.7rem;border-radius:6px;align-self:flex-start}
+.exp-highlights{display:flex;flex-wrap:wrap;gap:0.4rem}
+.exp-highlight{font-size:0.78rem;color:rgba(240,237,232,0.65);padding:0.2rem 0.6rem;background:rgba(255,255,255,0.04);border-radius:4px}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:1.25rem}
+.proj-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:1.75rem;transition:all 0.25s}
+.proj-dot{width:10px;height:10px;border-radius:50%;margin-bottom:1rem}
+.proj-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:0.75rem}
+.proj-desc{color:rgba(240,237,232,0.6);font-size:0.88rem;line-height:1.7;margin-bottom:1rem}
+.proj-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.proj-tag{font-size:0.75rem;padding:0.2rem 0.55rem;border-radius:4px}
+
+/* EDUCATION */
+.edu-grid{display:grid;gap:1.25rem}
+.edu-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:1.5rem;display:flex;gap:1.5rem;align-items:flex-start}
+.edu-icon{font-size:2rem;flex-shrink:0}
+.edu-degree{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:0.25rem}
+.edu-school{color:#a78bfa;font-size:0.85rem;margin-bottom:0.25rem}
+.edu-year{color:rgba(240,237,232,0.4);font-size:0.8rem}
+
+/* FOOTER */
+footer{text-align:center;padding:3rem 2rem;color:rgba(240,237,232,0.3);font-size:0.85rem;border-top:1px solid rgba(255,255,255,0.06)}
+footer span{color:#a78bfa}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#home" class="active" onclick="setActive(this)">Home</a>
+  <a href="#skills" onclick="setActive(this)">Skills</a>
+  <a href="#experience" onclick="setActive(this)">Experience</a>
+  <a href="#projects" onclick="setActive(this)">Projects</a>
+  <a href="#education" onclick="setActive(this)">Education</a>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+  <div class="glow-bg"></div>
+  <div class="avatar">SM</div>
+  <h1 class="hero">Sornambigai M</h1>
+  <p class="hero-role">Senior Unity Developer · VR/AR Specialist</p>
+  <p class="hero-desc">Building immersive worlds and intelligent systems — 5+ years bridging Unity, REST APIs, and full-stack platforms for healthcare and education.</p>
+  <div class="tags">
+    <span class="tag">Chennai, India</span>
+    <span class="tag">Unity3D</span>
+    <span class="tag">VR / AR</span>
+    <span class="tag">Python</span>
+    <span class="tag">React</span>
+    <span class="tag">5+ Years</span>
+  </div>
+  <div class="contact-row">
+    <span>📧 swarnasjct@gmail.com</span>
+    <span>📱 +91 7094573459</span>
+    <span>📍 Tharamani, Chennai</span>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2 class="sec-title">Technical Skills</h2>
+  <p class="sec-sub">Full-stack VR/AR development expertise</p>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-icon">🎮</div>
+      <div class="skill-cat">Game Engine</div>
+      <div class="skill-items">
+        <span class="skill-item">Unity3D</span><span class="skill-item">C#</span><span class="skill-item">Maya</span><span class="skill-item">VR/AR</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🌐</div>
+      <div class="skill-cat">Networking</div>
+      <div class="skill-items">
+        <span class="skill-item">Photon SDK</span><span class="skill-item">Multiplayer VR</span><span class="skill-item">Voice SDK</span><span class="skill-item">Cross-HMD</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">⚙️</div>
+      <div class="skill-cat">Backend</div>
+      <div class="skill-items">
+        <span class="skill-item">Python</span><span class="skill-item">Flask</span><span class="skill-item">REST API</span><span class="skill-item">SQLite</span><span class="skill-item">MySQL</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">💻</div>
+      <div class="skill-cat">Frontend</div>
+      <div class="skill-items">
+        <span class="skill-item">React</span><span class="skill-item">HTML</span><span class="skill-item">PHP</span><span class="skill-item">Dashboards</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">🥽</div>
+      <div class="skill-cat">Devices</div>
+      <div class="skill-items">
+        <span class="skill-item">Oculus Quest 2</span><span class="skill-item">Oculus Quest 3</span><span class="skill-item">Rift</span><span class="skill-item">HTC Vive</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon">📊</div>
+      <div class="skill-cat">Data & Analytics</div>
+      <div class="skill-items">
+        <span class="skill-item">pandas</span><span class="skill-item">matplotlib</span><span class="skill-item">Analytics</span><span class="skill-item">Pipelines</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <h2 class="sec-title">Experience</h2>
+  <p class="sec-sub">5+ years of professional journey</p>
+  <div class="timeline">
+
+    <div class="exp-item">
+      <div class="exp-dot" style="background:#a78bfa;box-shadow:0 0 12px #a78bfa66"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Team Leader</div>
+            <div style="color:#a78bfa;font-size:0.85rem;font-weight:500">HIMT Marine College, Chennai</div>
+          </div>
+          <span class="exp-period">Mar 2026 – Present</span>
+        </div>
+        <div class="exp-highlights">
+          <span class="exp-highlight">· KITBIT VR Training Platform</span>
+          <span class="exp-highlight">· Claude AI dev workflows</span>
+          <span class="exp-highlight">· Unity→Flask→SQLite→React pipeline</span>
+          <span class="exp-highlight">· Real-time training analytics</span>
+          <span class="exp-highlight">· React Admin Dashboard</span>
+          <span class="exp-highlight">· API Architecture Design</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot" style="background:#34d399;box-shadow:0 0 12px #34d39966"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Senior Unity Developer</div>
+            <div style="color:#34d399;font-size:0.85rem;font-weight:500">MedisimVR Pvt. Ltd., Chennai</div>
+          </div>
+          <span class="exp-period">Oct 2021 – Mar 2026</span>
+        </div>
+        <div class="exp-highlights">
+          <span class="exp-highlight">· Healthcare VR on Oculus Quest 2/3</span>
+          <span class="exp-highlight">· Multiplayer VR with Photon</span>
+          <span class="exp-highlight">· Node-based VR module builder</span>
+          <span class="exp-highlight">· Photon Voice SDK</span>
+          <span class="exp-highlight">· Mentored junior developers</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot" style="background:#fb923c;box-shadow:0 0 12px #fb923c66"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Software Developer</div>
+            <div style="color:#fb923c;font-size:0.85rem;font-weight:500">Arcllines Visualise Beyond, Trichy</div>
+          </div>
+          <span class="exp-period">Nov 2019 – Sep 2021</span>
+        </div>
+        <div class="exp-highlights">
+          <span class="exp-highlight">· Game for Autism Kids</span>
+          <span class="exp-highlight">· Anatomy Descriptor VR</span>
+          <span class="exp-highlight">· HTC Vive integration</span>
+          <span class="exp-highlight">· 3D physics & spatial audio</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-dot" style="background:#60a5fa;box-shadow:0 0 12px #60a5fa66"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Assistant Lecturer</div>
+            <div style="color:#60a5fa;font-size:0.85rem;font-weight:500">SRC College, Trichy</div>
+          </div>
+          <span class="exp-period">Jun 2018 – May 2019</span>
+        </div>
+        <div class="exp-highlights">
+          <span class="exp-highlight">· C, C++, Core Java</span>
+          <span class="exp-highlight">· HTML, MySQL</span>
+          <span class="exp-highlight">· Undergraduate teaching</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2 class="sec-title">Projects</h2>
+  <p class="sec-sub">From VR training platforms to accessibility games</p>
+  <div class="projects-grid">
+
+    <div class="proj-card" onmouseover="this.style.borderColor='#a78bfa55';this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='rgba(255,255,255,0.03)'">
+      <div class="proj-dot" style="background:#a78bfa;box-shadow:0 0 8px #a78bfa"></div>
+      <div class="proj-name">KITBIT VR Training Platform</div>
+      <p class="proj-desc">Full-stack VR training platform with Flask REST API, React admin dashboard, SQLite DB, role-based access, and real-time student analytics.</p>
+      <div class="proj-tags">
+        <span class="proj-tag" style="border:1px solid #a78bfa44;color:#a78bfa;background:#a78bfa11">Unity</span>
+        <span class="proj-tag" style="border:1px solid #a78bfa44;color:#a78bfa;background:#a78bfa11">Flask</span>
+        <span class="proj-tag" style="border:1px solid #a78bfa44;color:#a78bfa;background:#a78bfa11">React</span>
+        <span class="proj-tag" style="border:1px solid #a78bfa44;color:#a78bfa;background:#a78bfa11">SQLite</span>
+      </div>
+    </div>
+
+    <div class="proj-card" onmouseover="this.style.borderColor='#34d39955';this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='rgba(255,255,255,0.03)'">
+      <div class="proj-dot" style="background:#34d399;box-shadow:0 0 8px #34d399"></div>
+      <div class="proj-name">Anatomy Descriptor VR</div>
+      <p class="proj-desc">Interactive VR experience for medical students to explore human anatomy in 3D using Unity3D, C#, and Maya models.</p>
+      <div class="proj-tags">
+        <span class="proj-tag" style="border:1px solid #34d39944;color:#34d399;background:#34d39911">Unity3D</span>
+        <span class="proj-tag" style="border:1px solid #34d39944;color:#34d399;background:#34d39911">C#</span>
+        <span class="proj-tag" style="border:1px solid #34d39944;color:#34d399;background:#34d39911">Maya</span>
+        <span class="proj-tag" style="border:1px solid #34d39944;color:#34d399;background:#34d39911">Medical</span>
+      </div>
+    </div>
+
+    <div class="proj-card" onmouseover="this.style.borderColor='#fb923c55';this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='rgba(255,255,255,0.03)'">
+      <div class="proj-dot" style="background:#fb923c;box-shadow:0 0 8px #fb923c"></div>
+      <div class="proj-name">Game for Autism Kids</div>
+      <p class="proj-desc">Accessible learning game assisting autism children with daily activities using 3D physics, spatial audio, and HTC Vive motion capture.</p>
+      <div class="proj-tags">
+        <span class="proj-tag" style="border:1px solid #fb923c44;color:#fb923c;background:#fb923c11">Unity</span>
+        <span class="proj-tag" style="border:1px solid #fb923c44;color:#fb923c;background:#fb923c11">HTC Vive</span>
+        <span class="proj-tag" style="border:1px solid #fb923c44;color:#fb923c;background:#fb923c11">3D Physics</span>
+        <span class="proj-tag" style="border:1px solid #fb923c44;color:#fb923c;background:#fb923c11">Education</span>
+      </div>
+    </div>
+
+    <div class="proj-card" onmouseover="this.style.borderColor='#60a5fa55';this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)';this.style.background='rgba(255,255,255,0.03)'">
+      <div class="proj-dot" style="background:#60a5fa;box-shadow:0 0 8px #60a5fa"></div>
+      <div class="proj-name">Kallanai Dam VR Tourism</div>
+      <p class="proj-desc">Immersive VR tourism walkthrough of one of the world's oldest dams with particle-based water, spatial audio, and Maya visuals.</p>
+      <div class="proj-tags">
+        <span class="proj-tag" style="border:1px solid #60a5fa44;color:#60a5fa;background:#60a5fa11">VR</span>
+        <span class="proj-tag" style="border:1px solid #60a5fa44;color:#60a5fa;background:#60a5fa11">Maya</span>
+        <span class="proj-tag" style="border:1px solid #60a5fa44;color:#60a5fa;background:#60a5fa11">Tourism</span>
+        <span class="proj-tag" style="border:1px solid #60a5fa44;color:#60a5fa;background:#60a5fa11">Audio</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <h2 class="sec-title">Education</h2>
+  <p class="sec-sub">Academic foundation in Computer Science</p>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <div class="edu-degree">Master of Computer Applications (M.C.A.)</div>
+        <div class="edu-school">St. Joseph's College, Trichy</div>
+        <div class="edu-year">2017 – 2020</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <div class="edu-degree">Bachelor of Science in Computer Science</div>
+        <div class="edu-school">SRC (Seethalakshmi Ramaswami College), Trichy</div>
+        <div class="edu-year">2014 – 2017</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">🏆</div>
+      <div>
+        <div class="edu-degree">Workshops & Certifications</div>
+        <div class="edu-school">AR/VR National-level Workshops</div>
+        <div class="edu-year">ADM College Nagapattinam · Anna University Trichy · St. Joseph's College Trichy</div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <p>Built with ❤️ by <span>Sornambigai M</span> · Senior Unity Developer & VR/AR Specialist</p>
+  <p style="margin-top:0.5rem">📧 swarnasjct@gmail.com · Chennai, India</p>
+</footer>
+
+<script>
+function setActive(el){
+  document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+  el.classList.add('active');
+}
+window.addEventListener('scroll',()=>{
+  const sections=document.querySelectorAll('section');
+  const navLinks=document.querySelectorAll('nav a');
+  let current='';
+  sections.forEach(s=>{
+    if(window.scrollY>=s.offsetTop-200) current=s.id;
+  });
+  navLinks.forEach(a=>{
+    a.classList.remove('active');
+    if(a.getAttribute('href')==='#'+current) a.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
